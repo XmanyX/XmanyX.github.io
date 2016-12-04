@@ -1,4 +1,4 @@
-//$(document).ready(function() {
+$(document).ready(function() {
 
 var clickedTime;
 var createdTime;
@@ -48,4 +48,4 @@ document.getElementById("box").onclick = function(){
 makeBox();
 });
 
-//});
+});
