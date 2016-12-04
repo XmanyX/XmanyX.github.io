@@ -5,7 +5,7 @@ var createdTime;
 var reactionTime;
 var highScore = [];
 
-//document.getElementById("startGame").onclick = function(){
+document.getElementById("startGame").onclick = function(){
   function makeBox() {
 
   var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
@@ -47,4 +47,5 @@ document.getElementById("box").onclick = function(){
 
 makeBox();
 });
+
 //});
