@@ -43,9 +43,9 @@ document.getElementById("box").onclick = function(){
   document.getElementById("time").innerHTML = reactionTime;
   this.style.display="none";
   makeBox();
-};
+}
 
 makeBox();
-//});
+});
 
 });
