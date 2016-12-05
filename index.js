@@ -5,7 +5,7 @@ var createdTime;
 var reactionTime;
 var highScore = [];
  function main() {
-document.getElementById("startGame").on('click', function(){
+$('.startGame').on('click', function(){
   function makeBox() {
 
   var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
@@ -17,30 +17,30 @@ document.getElementById("startGame").on('click', function(){
   var shape = Math.random()*50;
 
   setTimeout(function() {
-    document.getElementById("box").style.display="block"
-    document.getElementById("box").style.display="block";
-    document.getElementById("box").style.background=hue ;
-    document.getElementById("box").style.top=top + "px";
-    document.getElementById("box").style.left=left + "px";
-    document.getElementById("box").style.bordeRadius=shape + "%";
+    $('.box').style.display="block"
+    $('.box').style.display="block";
+    $('.box').style.background=hue ;
+    $('.box').style.top=top + "px";
+    $('.box').style.left=left + "px";
+    $('.box').style.bordeRadius=shape + "%";
     createdTime = Date.now();
   }, time);
 
   if(highScore.length > 0 && reactionTime == highScore) {
-    document.getElementById("highScore").style.color="red";
+    $('.highScore').style.color="red";
   } else {
-    document.getElementById("highScore").style.color="white";
+    $('.highScore').style.color="white";
   }
 
 };
 
-document.getElementById("box").onclick = function(){
+$('.box').onclick = function(){
   clickedTime = Date.now();
   reactionTime = (clickedTime - createdTime)/1000;
   highScore.push(reactionTime);
   highScore.sort(function(a, b){return a-b});
-  document.getElementById("highScore").innerHTML = highScore[0];
-  document.getElementById("time").innerHTML = reactionTime;
+  $('.highScore').innerHTML = highScore[0];
+  $('.time').innerHTML = reactionTime;
   this.style.display="none";
   makeBox();
   }
