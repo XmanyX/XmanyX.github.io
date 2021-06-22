@@ -89,6 +89,7 @@ body {
     transition: opacity 400ms ease-in;
     pointer-events: auto;
     animation: animatetop 2s;
+    overflow-y: auto;
 }
 
 .modalDialog:target {
