@@ -1,0 +1,211 @@
+body {
+    background-image: url('./background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 97vh;
+    width: 98vw;
+}
+
+#container {
+    position: fixed;
+}
+
+
+#graphic {
+    position: absolute;
+    width: 95vw;
+    height: 95vh;
+    z-index: 1;
+}
+
+#stepcounter {
+    position: absolute;
+    left: 5vh;
+    top: 90vh;
+    z-index: 100;
+}
+
+.provinceButton {
+    position: absolute;
+    left: 5vh;
+    top: 88vh;
+    z-index: 100;
+}
+
+#completeButton {
+    background-color: #00d9ff;
+}
+
+#foreignObject {
+    background-color: #00d9ff;
+}
+
+#tooltipWindow   {
+    position: absolute;
+    width:95vw;
+    height: 95vh;
+    z-index: -10;
+}
+
+.tooltipBox {
+    position: absolute;
+    left: 5vh;
+    top: 90vh;
+    z-index: 100;
+}
+
+
+.tooltip {
+    background-color: #95ffff;
+}
+
+#tooltip {
+    position: absolute;
+    overflow: visible;
+    left: 0;
+    top: 0;
+}
+
+#color {
+    background-color: #ffffff;
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity: 1;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: auto;
+    animation: animatetop 2s;
+}
+
+.modalDialog:target {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+    background: #00d9ff;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+input[type='checkbox'] {
+    display: none;
+}
+
+.wrap-collapsible {
+    margin: 1.2rem 0;
+    z-index: -1;
+}
+.lbl-toggle {
+    display: block;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem;
+    color: #DDD;
+    background: #144a0f;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all 0.5s ease-out;
+    z-index: -1;
+}
+.lbl-toggle:hover {
+    color: #FFF;
+    z-index: -1;
+}
+
+.lbl-toggle::before {
+    content: ' ';
+    display: inline-block;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid currentColor;
+    vertical-align: middle;
+    margin-right: .7rem;
+    transform: translateY(-2px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+.toggle:checked+.lbl-toggle::before {
+    transform: rotate(90deg) translateX(-3px);
+    z-index: 1;
+}
+
+.collapsible-content {
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height .25s ease-in-out;
+    position:absolute;
+}
+
+.toggle:checked + .lbl-toggle + .collapsible-content {
+    max-height: 95vh;
+}
+
+.toggle:checked+.lbl-toggle {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.collapsible-content .content-inner {
+    border-bottom: 1px solid rgba(0, 105, 255, .45);
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: .5rem 1rem;
+}
+
+.collapsible-content p {
+    margin-bottom: 0;
+}
+

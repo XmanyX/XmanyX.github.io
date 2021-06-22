@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>GameBus Journey!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+
+</head>
+<body>
+<div id="container">
+  <div class="wrap-collapsible">
+    <input id="collapsible" class="toggle" type="checkbox">
+    <label for="collapsible" class="lbl-toggle">Show your Tasks</label>
+    <div class="collapsible-content">
+      <div class="content-inner">
+        <div id="tooltipWindow"></div>
+      </div>
+    </div>
+  </div>
+
+<div id="openModal" class="modalDialog">
+  <div> <a href="#openModal" title="Close" class="close">X</a>
+    <h2>Welcome!</h2>
+    <p>Welcome to your GameBus Journey!</p>
+    <p>You have been tasked with the objective to take over all the provinces in Prodentia!</p>
+    <h3>How do you take over provinces?</h3>
+    <p>To take over a province, you need to score a certain amount of points</p>
+    <p>These points are awarded for performing a range of tasks, each with a different worth</p>
+    <p>The range and amount of tasks and the amount of points that are awarded per task can differ between provinces; some may be very hard to do!</p>
+    <p>Once you take over a province, you can go to a neighboring province to take it over, up until you have taken over all of Prodentia!</p>
+    <button type="button" class= "modalButton" onclick=document.getElementById('openModal').style.display='none';>OK</button>
+  </div>
+</div>
+<div id="graphic"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3plus-text@1"></script>
+<script src="https://rawgit.com/kstohr/d3textwrap/master/d3textwrap.v0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Turf.js/5.1.5/turf.min.js"></script>
+<script src="polylabel.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
