@@ -20,6 +20,12 @@ let svg2 = d3
     .attr('height', window.innerHeight)
     .attr('width', window.innerWidth/4);
 
+let svg3 = d3
+    .select('#graphic')
+    .append('svg')
+    .attr("class", "svg3")
+    .append('g')
+
 // Defining the Objectives Array
 let objectivelist = [
     ["Run 5000 meters for 10 points!", 10],
@@ -62,6 +68,7 @@ function ready([hexFile, datapoints]) {
     let active = []
     let path = d3.geoPath();
     let initial = 0
+    let first = Math.floor(Math.random()*23).toString()
 
 
     // Button for completing province
@@ -88,10 +95,10 @@ function ready([hexFile, datapoints]) {
             })
     })
 
-    // Declare variables for the active province
+    // Declare variables for the first province
     svg.selectAll('.hex-group')
             .each(function (d) {
-                if (d.id === "1" && initial === 0) {
+                if (d.id === first && initial === 0) {
                     initial = 1
                     active.push(d.id)
                     currProv = d.name
@@ -108,7 +115,7 @@ function ready([hexFile, datapoints]) {
         .attr("x", 10)
         .attr("y", 10)
         .attr("width", width / 5)
-        .attr("height", window.innerHeight/1.05)
+        .attr("height", window.innerHeight/2)
         .attr('fill', 'rgba(255,255,255,0.4)')
         .attr("class", "tooltipBox")
         .attr('stroke', '#136610')
@@ -119,7 +126,7 @@ function ready([hexFile, datapoints]) {
         .attr('class', 'tooltip')
         .style('opacity', 0)
 
-    let newProvinceBox = svg2.append("rect")
+    let newProvinceBox = svg3.append("rect")
         .attr("rx", 15)
         .attr("ry", 15)
         .attr("x", width / 2.075)
@@ -145,7 +152,7 @@ function ready([hexFile, datapoints]) {
         .attr("x", width / 35)
         .attr("y", height/2.25)
         .text("Score at least " + goal + " points to take over the province!")
-        .style("font-weight", 550)
+        .style("font-weight", window.innerWidth/5)
         .style("font-size", 18)
         .style("fontColor", "#000000")
         .call(wrap2, function() {
@@ -159,7 +166,7 @@ function ready([hexFile, datapoints]) {
         .attr("x", width / 2)
         .attr("y", height / 15)
         .text("Choose your next province!")
-        .style("font-weight", 550)
+        .style("font-weight", window.innerWidth/5)
         .style("fontColor", "#ffffff")
         .style("font-size", 32)
         .style("opacity", 0);
@@ -170,8 +177,8 @@ function ready([hexFile, datapoints]) {
         .attr("x", width / 35)
         .attr("y", height / 15)
         .text(currProv)
-        .style("font-weight", 550)
-        .style("font-size", 32);
+        .style("font-weight", window.innerWidth/5)
+        .style("font-size", window.innerWidth/50);
 
 
     let currentTasks = svg2.append("text")
@@ -180,7 +187,7 @@ function ready([hexFile, datapoints]) {
         .attr("x", width / 5)
         .attr("y", window.innerHeight/6)
         .text(objectivetextlist)
-        .style("font-weight", 550)
+        .style("font-weight", window.innerWidth/5)
         .style("font-size", 18)
         .call(wrap, function() {
             return textWidth;
@@ -204,19 +211,18 @@ function ready([hexFile, datapoints]) {
     // When completing a Province
     function completeProvince() {
         completed = 1
-        // document.getElementById('stepcounter').setAttribute('value', 0)
 
         newProvinceBox.transition()
-            .duration(200)
+            .duration(20)
             .style("opacity", 1);
+
         chooseProvince.transition()
-            .duration(200)
+            .duration(20)
             .style("opacity", 1);
 
         for (let i = 0; i < nb.length+1; i++) {
             let letter = nb[i];
             neighbor = neighbor + letter
-            console.log(neighbor)
             if (i === 2 ||  i === 5 || i === 8 || i === 11 ||  i === 14 || i === 17) {
                 svg.selectAll('.hex-group')
                     .each(function(d) {
@@ -357,7 +363,7 @@ function ready([hexFile, datapoints]) {
         })
 
         .on("click", function(d){
-            if (completed === 1) {
+            if (completed === 1 && neighbors.includes(d.abbr)) {
                 completed = 0
                 active.push(d.id)
                 last = active.length-1
