@@ -78,13 +78,6 @@ function ready([hexFile, datapoints]) {
     let body2 = document.getElementsByClassName("content-inner");
     body2[0].appendChild(button);
 
-    let steps = document. createElement('input')
-    steps.setAttribute('type', 'number')
-    steps.setAttribute('value', "0")
-    steps.setAttribute('step', 5)
-    steps.setAttribute('id', 'stepcounter')
-    body2[0].appendChild(steps);
-
     svg.html(imported.html())
 
     datapoints.forEach(d => {
@@ -193,17 +186,6 @@ function ready([hexFile, datapoints]) {
             return textWidth;
         });
 
-
-    // When adding points
-    steps.addEventListener('change', function() {
-        console.log('change')
-        console.log(goal)
-        let step = document.getElementById('stepcounter').value;
-        if (step === goal) {
-            alert('completed!')
-            completeProvince()
-        }
-    })
 
     // TEST button
     button.addEventListener ("click", completeProvince)
